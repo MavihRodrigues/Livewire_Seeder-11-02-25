@@ -1,5 +1,13 @@
 <div class="mt-5">
 
+    @if(session()->has('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    @endif
+
     <div class="card">
         <h5 class="card-header">Cadastro de Tarefas</h5>
 
@@ -9,7 +17,7 @@
                     <label for="nome" class="form-label">Nome</label> {{-- placeholder: colocar um texto de exemplo dentro de uma caixa de texto --}}
                     <input type="text" class="form-control" id="nome" name="nome" placeholder="Ex.: Tarefa" wire:model.defer="nome">
                 </div>                                                      
-
+                {{ $nome }}
                 <div class="mb-3">
                     <label for="data_hora">Data e Hora</label>
                     <input type="datetime-local" name="data_hora" id="data_hora" class="form-control" wire:model.defer="data_hora">
